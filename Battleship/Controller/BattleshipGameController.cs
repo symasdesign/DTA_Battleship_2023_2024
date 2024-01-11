@@ -1,4 +1,5 @@
 ﻿using Battleship.Model;
+using Battleship.Model.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
@@ -24,6 +25,14 @@ namespace Battleship.Controller
 
         public void HandlePlayerInput(Coordinate coordinate) {
             this.game.HandlePlayerInput(coordinate);
+        }
+
+        public void SetPlayer1Strategy(PlayerStrategy playerStrategy) {
+            this.game.SetPlayer1Strategy(playerStrategy);
+        }
+
+        public void SetPlayer2Strategy(PlayerStrategy playerStrategy) {
+            this.game.SetPlayer2Strategy(playerStrategy);
         }
     }
 }

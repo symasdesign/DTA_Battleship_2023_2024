@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Battleship.Model {
     public class GameBoard {
-        private int size;
+        public int Size { get; }
         private SeaSquare[,] internalBoard;
         public GameBoard(int size) {
-            this.size = size;
+            this.Size = size;
             this.internalBoard = new SeaSquare[size, size];
         }
     }

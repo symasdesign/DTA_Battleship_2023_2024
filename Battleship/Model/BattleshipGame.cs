@@ -1,4 +1,5 @@
 ﻿using Battleship.Model.StateMachine;
+using Battleship.Model.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +14,20 @@ namespace Battleship.Model {
         public GameBoard Player1Board { get; set; }
         public GameBoard Player2Board { get; set; }
 
+        public PlayerStrategyBase Player1Strategy { get; private set; } 
+        public PlayerStrategyBase Player2Strategy { get; private set; } 
+
+        public void SetPlayer1Strategy(PlayerStrategy playerStrategy) {
+            this.Player1Strategy = PlayerStrategyFactory.Create(playerStrategy, this.Player1Board);
+        }
+        public void SetPlayer2Strategy(PlayerStrategy playerStrategy) {
+            this.Player2Strategy = PlayerStrategyFactory.Create(playerStrategy, this.Player1Board);
+        }
+
         public BattleshipGame() {
+            this.SetPlayer1Strategy(PlayerStrategy.Manual);
+            this.SetPlayer2Strategy(PlayerStrategy.Manual);
+
             TransitionToState(new UninitializedState());
         }
 

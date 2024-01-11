@@ -44,7 +44,7 @@ namespace Battleship {
                 Console.Write("Y-Koordinate: ");
                 var y = int.Parse( Console.ReadLine());
 
-                controller.HandlePlayerInput(new Coordinate { X = x, Y = y });
+                controller.HandlePlayerInput(new Coordinate(x,y));
             } while (true);
 
         }
