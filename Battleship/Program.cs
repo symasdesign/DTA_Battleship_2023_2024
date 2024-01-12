@@ -14,6 +14,9 @@ namespace Battleship {
         /// </summary>
         [STAThread]
         static void Main() {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
 
             AllocConsole();
 
@@ -21,19 +24,20 @@ namespace Battleship {
             var controller = new BattleshipGameController(game);
 
             var player1GameBoardView = new GameBoardView(controller);
-            var player2GameBoardView = new GameBoardView(controller);
+            //var player2GameBoardView = new GameBoardView(controller);
+            var player2GameBoardView = new RemotePlayerView(controller);    
             var gameStatusView = new GameStatusView(controller);
 
             controller.RegisterView(player1GameBoardView);
             controller.RegisterView(player2GameBoardView);
             controller.RegisterView(gameStatusView);
+            var form = new Form1(controller);
+            controller.RegisterView(form);
 
             controller.InitializeGame();
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            Application.Run(form);
 
 
             do {

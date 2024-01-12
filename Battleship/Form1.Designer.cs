@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             gameBoardControlView1 = new View.GameBoardControlView();
             gameBoardControlView2 = new View.GameBoardControlView();
+            label1 = new Label();
             SuspendLayout();
             // 
             // gameBoardControlView1
@@ -43,21 +44,33 @@
             gameBoardControlView2.Size = new Size(300, 300);
             gameBoardControlView2.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(79, 481);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 2;
+            label1.Text = "label1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1096, 635);
+            Controls.Add(label1);
             Controls.Add(gameBoardControlView2);
             Controls.Add(gameBoardControlView1);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private View.GameBoardControlView gameBoardControlView1;
         private View.GameBoardControlView gameBoardControlView2;
+        private Label label1;
     }
 }
